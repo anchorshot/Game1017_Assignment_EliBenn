@@ -87,6 +87,7 @@ public class ObstacleSpawner : MonoBehaviour
             if (obstacle != null) Destroy(obstacle);
         }
         spawnedObstacles.Clear();
+
         }
 
 }
