@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7207198652368736129}
   - component: {fileID: 3356677117877263012}
   - component: {fileID: -6744960063772147092}
+  - component: {fileID: -5061686939578664819}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +139,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5061686939578664819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109360519764447674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eecd959e87d17a45b3c45d27e638dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
+  obstaclePrefab: {fileID: 7223084872849873370, guid: e7539c5e93b48b143acbf5c2313bc26e, type: 3}
+  spawnChance: 0.3
+  validspawnpointsX:
+  - -3
+  - 0
+  - 3
+  yOffset: 1
+  minSpaceBetweenObstacles: 2.5

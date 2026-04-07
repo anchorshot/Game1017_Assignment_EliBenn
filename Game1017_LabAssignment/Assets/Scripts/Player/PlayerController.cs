@@ -17,12 +17,17 @@ public class PlayerController : MonoBehaviour
    private bool jumpPressed = false;
     private bool isGrounded = false;
 
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.simulated = false;
+    }
     public void Initialize()
     {
         StartPosition = transform.position;
-
-        rb = GetComponent<Rigidbody2D>();
         rb.simulated = true;
+
     }
 
 

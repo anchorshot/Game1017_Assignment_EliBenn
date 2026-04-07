@@ -163,5 +163,8 @@ public class GameManager : MonoBehaviour
         CurrentGameState = state;
     }
 
-
+    public void PlayerDied()
+    {
+        GameOver();
+    }
 }
