@@ -1,59 +1,41 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
 
-    [SerializeField] private AudioSource musicSound, sfxSound;
-    [SerializeField] private AudioClip soundEffect;
-    [SerializeField] private AudioMixer mixer;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
 
-    private static SoundManager instance;
 
-    public static SoundManager Instance
+    [Header("Music n sounds")]
+    [SerializeField] private AudioClip BGMusic;
+    [SerializeField] private AudioClip CollisionSound;
+    [SerializeField] private AudioClip JumpSound;
+
+
+    public void PlayCollisionSound()
     {
-        get
+        if (CollisionSound != null)
         {
-            if (instance == null)
-            {
-               instance = FindFirstObjectByType<SoundManager>();
+            sfxSource.PlayOneShot(CollisionSound);
 
-                if (instance == null)
-                {
-                    GameObject soundManagerObject = new GameObject(nameof(SoundManager));
-                    instance = soundManagerObject.AddComponent<SoundManager>();
-                }
-            }
-
-            return instance;
         }
     }
-
-    private void Awake()
+    public void PlayJumpSound()
     {
-        if (instance != null && instance != this)
+        if (JumpSound != null)
         {
-            Destroy(gameObject);
-            return;
+            sfxSource.PlayOneShot(JumpSound);
+
         }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
-    [ContextMenu("Change Music Volume")]
     public void ChangeMusicVolume(float newVolume)
     {
-    
-        musicSound.volume = newVolume;
+        musicSource.volume = newVolume;
     }
-
-    [ContextMenu("Change SFX Volume")]
     public void ChangeSFXVolume(float newVolume)
     {
-        sfxSound.volume = newVolume;
-    }
-
-    public void PlaySFX()
-    {
-        sfxSound.PlayOneShot(soundEffect);
+        sfxSource.volume = newVolume;
     }
 }

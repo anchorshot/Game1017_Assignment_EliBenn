@@ -56,7 +56,10 @@ public class UIManager : MonoBehaviour
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-
+    public float GetTimeElapsed()
+    {
+        return timeElapsed;
+    }
     public void StartTimer()
     {
         timerRunning = true;

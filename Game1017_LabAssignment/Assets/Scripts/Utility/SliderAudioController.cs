@@ -11,12 +11,7 @@ public class SliderAudioController : MonoBehaviour
     private void Awake()
     {
         slider = GetComponent<Slider>();
-    }
-
-    private void Start()
-    {
-        ChangeSoundVolume(slider.value);
-    
+        slider.value = 1f;
     }
 
     private void ChangeSoundVolume(float newVolume)

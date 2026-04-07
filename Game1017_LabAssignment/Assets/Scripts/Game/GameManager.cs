@@ -143,7 +143,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        float TimePassed = UIManager.GetTimeElapsed();
+        SaveSystem.Instance.SetHighTimes(TimePassed);
+     
         UIManager.StopTimer();
+
         SetGameState(GameStates.GameOver);
         SceneManager.LoadScene("GameOverScene");
     }

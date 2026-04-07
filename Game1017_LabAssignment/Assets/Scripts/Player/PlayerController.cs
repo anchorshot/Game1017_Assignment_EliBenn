@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-        SoundManager.Instance.PlaySFX();
+        SoundManager.Instance.PlayJumpSound();
     }
 //Called automatically by PlayerInput (Send Messages) when the jump action is triggered
 
